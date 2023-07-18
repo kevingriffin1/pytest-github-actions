@@ -25,13 +25,15 @@ def test_lhs():
                 # Note: that the sampler will increment the rand_state for each sample
                 rand_state = int(n_samp+1.0 + sum(n_lhs_samp[:i]))
             
-            sampling = LHS(xlimits=xlimits, criterion='maximin', random_state=rand_state)
+            sampling = LHS(xlimits=xlimits,criterion='maximin',random_state=rand_state)
             x_data_lhs = sampling(n_lhs_samp[i])
             x_data = np.append(x_data,x_data_lhs,axis=0)
             n_samp = n_samp + n_lhs_samp[i]
     print(x_data)
     computed_values = x_data.flatten()
-    expected_samples = np.array([[0.48283585,4.06777601],[0.13995167,4.08199814],[0.2828112,4.19778379],[0.90297782,4.00409338],[0.70717928,4.14655179]])
+    expected_samples = np.array([[0.48283585,4.06777601],[0.13995167,4.08199814]
+                                 ,[0.2828112,4.19778379],[0.90297782,4.00409338]
+                                 ,[0.70717928,4.14655179]])
     expected_values = expected_samples.flatten()
     tolerances = [1e-7]*n_dim*n_lhs_samp[0]
     for i in range(len(expected_values)):
