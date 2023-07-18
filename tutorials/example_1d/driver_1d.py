@@ -47,18 +47,18 @@ def driver_1d():
     # Perform the optimization
     import time
     t = time.time()
-    my_model = Model(func_1d, params, mod_ops)
-    my_model.add_lhs_samples(2)
+    my_model2 = Model(func_1d, params, mod_ops)
+    my_model2.add_lhs_samples(2)
     viz_ops = VizOptions()
     # viz_ops.animation_1d=True
-    # my_model.add_bo_samples(7,viz_ops=viz_ops)
-    my_model.add_bo_samples(1,viz_ops=viz_ops)
-    [x_opt, y_opt] = my_model.find_min()
+    # my_model2.add_bo_samples(7,viz_ops=viz_ops)
+    my_model2.add_bo_samples(1,viz_ops=viz_ops)
+    [x_opt, y_opt] = my_model2.find_min()
     t = time.time() - t
     print('Elapsed time = ', t, ' s')
     print('The minimum should be approximately [x,y] = [18.9352,-15.1251]')
     print('The minimum found is [', x_opt[0], ',', y_opt,']')
-    computed_values = [my_model.x_data[0][-1,0],my_model.y_data[0][-1,0]]
+    computed_values = [my_model2.x_data[0][-1,0],my_model2.y_data[0][-1,0]]
     expected_values = [10.931257746200416, 5.205871653595352]
     tolerances = [1e-5, 1e-5]
 
