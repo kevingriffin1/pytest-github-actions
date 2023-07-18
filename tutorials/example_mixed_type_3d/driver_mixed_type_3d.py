@@ -84,6 +84,7 @@ def driver_mixed_type_3d():
     viz_ops = VizOptions()
     # viz_ops.plot_nd=True
     #my_model.add_bo_samples(25,viz_ops=viz_ops)
+    my_model.add_bo_samples(1,viz_ops=viz_ops)
     [x_opt, y_opt] = my_model.find_min()
     t = time.time() - t
     print('Elapsed time = ', t, ' s')
@@ -91,6 +92,9 @@ def driver_mixed_type_3d():
     print('The minimum found is y = ', y_opt, ' at the location [', x_opt[0],', ',x_opt[1],', ',x2.categories[int(x_opt[2])],']')
     computed_values = [x_opt[0], x_opt[1], x_opt[2], y_opt[0]]
     
+    # expected_values = [6.686500927681584, 3.0, 1.0, 3.8442853790708433] # Note: 1 maps to 'b' for x2
+    # tolerances = [1e-5, 1e-12, 1e-12, 1e-5]
+
     expected_values = [6.686500927681584, 3.0, 1.0, 3.8442853790708433] # Note: 1 maps to 'b' for x2
     tolerances = [1e-5, 1e-12, 1e-12, 1e-5]
     
