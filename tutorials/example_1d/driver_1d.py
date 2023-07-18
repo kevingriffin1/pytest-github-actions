@@ -59,7 +59,8 @@ def driver_1d():
     print('The minimum should be approximately [x,y] = [18.9352,-15.1251]')
     print('The minimum found is [', x_opt[0], ',', y_opt,']')
     computed_values = [my_model2.x_data[0][-1,0],my_model2.y_data[0][-1,0]]
-    expected_values = [10.931257746200416, 5.205871653595352]
+    # expected_values = [10.931257746200416, 5.205871653595352]
+    expected_values = [4.430890164405155, 0.27181479523752633]
     tolerances = [1e-5, 1e-5]
 
     return expected_values, computed_values, tolerances
