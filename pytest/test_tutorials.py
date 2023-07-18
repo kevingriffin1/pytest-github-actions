@@ -12,9 +12,9 @@ import matplotlib.pyplot as plt
 #     tutorial_tester(monkeypatch,'example_query_1d','driver_query_1d')
 #     return
 
-def test_example_1d(monkeypatch):
-    tutorial_tester(monkeypatch,'example_1d','driver_1d')
-    return
+# def test_example_1d(monkeypatch):
+#     tutorial_tester(monkeypatch,'example_1d','driver_1d')
+#     return
 
 # def test_example_2d(monkeypatch):
 #     tutorial_tester(monkeypatch,'example_2d','driver_2d')
@@ -32,9 +32,9 @@ def test_example_1d(monkeypatch):
 #     tutorial_tester(monkeypatch,'example_mixed_type_3d','driver_mixed_type_3d')
 #     return
 
-# def test_example_mixed_type_read_file_3d(monkeypatch):
-#     tutorial_tester(monkeypatch,'example_mixed_type_read_file_3d','driver_mt_rf_3d')
-#     return
+def test_example_mixed_type_read_file_3d(monkeypatch):
+    tutorial_tester(monkeypatch,'example_mixed_type_read_file_3d','driver_mt_rf_3d')
+    return
 
 # def test_example_multifidelity_1d(monkeypatch):
 #     tutorial_tester(monkeypatch,'example_multifidelity_1d','driver_mf_1d')

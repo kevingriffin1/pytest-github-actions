@@ -56,6 +56,7 @@ def add_bo_samples(model,n_iter,bo_ops,viz_ops):
                 # Ensurses the fidelity levels all have unique seeds on all optimization iterations. 
                 # Note: that the sampler will increment the rand_state for each sample
                 rand_state = int(sum(model.n_samp+1) + (k+1)*(i+1)*bo_ops.n_opt_pts)
+                print(f'rand_state = {rand_state}')
 
             if model.mixed_type:
                 sampling_opt = MixedIntegerSamplingMethod(model.xtypes, model.xlimits, LHS, criterion="maximin", random_state=rand_state)
