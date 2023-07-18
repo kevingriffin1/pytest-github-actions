@@ -82,7 +82,7 @@ def driver_mixed_type_3d():
     my_model = Model(func_mt, params, mod_ops)
     my_model.add_lhs_samples(8)
     viz_ops = VizOptions()
-    # viz_ops.plot_nd=True
+    viz_ops.plot_nd=True
     my_model.add_bo_samples(25,viz_ops=viz_ops)
     # my_model.add_bo_samples(2,viz_ops=viz_ops)
     [x_opt, y_opt] = my_model.find_min()
