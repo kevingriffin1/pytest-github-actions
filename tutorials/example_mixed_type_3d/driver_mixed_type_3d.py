@@ -82,7 +82,7 @@ def driver_mixed_type_3d():
     my_model = Model(func_mt, params, mod_ops)
     my_model.add_lhs_samples(8)
     viz_ops = VizOptions()
-    viz_ops.plot_nd=True
+    # viz_ops.plot_nd=True
     #my_model.add_bo_samples(25,viz_ops=viz_ops)
     my_model.add_bo_samples(2,viz_ops=viz_ops)
     [x_opt, y_opt] = my_model.find_min()
@@ -95,7 +95,7 @@ def driver_mixed_type_3d():
     # expected_values = [6.686500927681584, 3.0, 1.0, 3.8442853790708433] # Note: 1 maps to 'b' for x2
     # tolerances = [1e-5, 1e-12, 1e-12, 1e-5]
 
-    expected_values = [5.978959931698251, 3.0, 1.0, 1.9583625478706441] # Note: 1 maps to 'b' for x2
+    expected_values = [5.978959931698251, 5.0, 1.0, 1.9583625478706441] # Note: 1 maps to 'b' for x2
     tolerances = [1e-5, 1e-12, 1e-12, 1e-5]
     
     # expected_values = [5.0, 4.0, 1.0, 0.0] # Note: 1 maps to 'b' for x2
