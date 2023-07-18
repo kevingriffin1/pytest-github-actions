@@ -84,7 +84,7 @@ def driver_mixed_type_3d():
     viz_ops = VizOptions()
     # viz_ops.plot_nd=True
     #my_model.add_bo_samples(25,viz_ops=viz_ops)
-    my_model.add_bo_samples(1,viz_ops=viz_ops)
+    my_model.add_bo_samples(2,viz_ops=viz_ops)
     [x_opt, y_opt] = my_model.find_min()
     t = time.time() - t
     print('Elapsed time = ', t, ' s')
@@ -95,13 +95,16 @@ def driver_mixed_type_3d():
     # 1 iter
     # expected_values = [6.686500927681584, 3.0, 1.0, 3.8442853790708433] # Note: 1 maps to 'b' for x2
     # tolerances = [1e-5, 1e-12, 1e-12, 1e-5]
-    computed_values = [my_model.x_data[0][-1,0],my_model.x_data[0][-1,1],my_model.x_data[0][-1,2],my_model.y_data[0][-1,0]]
-    expected_values = [8.0, 3.0, 1.0, 10.0]
-    tolerances = [1e-5]*4
+    # computed_values = [my_model.x_data[0][-1,0],my_model.x_data[0][-1,1],my_model.x_data[0][-1,2],my_model.y_data[0][-1,0]]
+    # expected_values = [8.0, 3.0, 1.0, 10.0]
+    # tolerances = [1e-5]*4
 
     # 2 iters
     # expected_values = [5.978959931698251, 5.0, 1.0, 1.9583625478706441] # Note: 1 maps to 'b' for x2
     # tolerances = [1e-5, 1e-12, 1e-12, 1e-5]
+    computed_values = [my_model.x_data[0][-1,0],my_model.x_data[0][-1,1],my_model.x_data[0][-1,2],my_model.y_data[0][-1,0]]
+    expected_values = [5.978959931698251, 5.0, 1.0, 1.9583625478706441]
+    tolerances = [1e-5]*4
     
     # expected_values = [5.0, 4.0, 1.0, 0.0] # Note: 1 maps to 'b' for x2
     # assert(x2.categories[int(x_opt[2])]=='b')
