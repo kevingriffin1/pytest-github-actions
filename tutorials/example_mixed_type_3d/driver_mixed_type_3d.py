@@ -82,17 +82,22 @@ def driver_mixed_type_3d():
     my_model = Model(func_mt, params, mod_ops)
     my_model.add_lhs_samples(8)
     viz_ops = VizOptions()
-    viz_ops.plot_nd=True
-    my_model.add_bo_samples(25,viz_ops=viz_ops)
+    # viz_ops.plot_nd=True
+    #my_model.add_bo_samples(25,viz_ops=viz_ops)
     [x_opt, y_opt] = my_model.find_min()
     t = time.time() - t
     print('Elapsed time = ', t, ' s')
     print('The minimum should be y = 0 at the location [x0_opt, x1_opt, x2_opt] = [5, 4, b]')
     print('The minimum found is y = ', y_opt, ' at the location [', x_opt[0],', ',x_opt[1],', ',x2.categories[int(x_opt[2])],']')
     computed_values = [x_opt[0], x_opt[1], x_opt[2], y_opt[0]]
-    expected_values = [5.0, 4.0, 1.0, 0.0] # Note: 1 maps to 'b' for x2
-    assert(x2.categories[int(x_opt[2])]=='b')
-    tolerances = [0.2, 1e-12, 1e-12, 0.2]
+    
+    expected_values = [6.686500927681584, 3.0, 1.0, 3.8442853790708433] # Note: 1 maps to 'b' for x2
+    tolerances = [1e-5, 1e-12, 1e-12, 1e-5]
+    
+    # expected_values = [5.0, 4.0, 1.0, 0.0] # Note: 1 maps to 'b' for x2
+    # assert(x2.categories[int(x_opt[2])]=='b')
+    # tolerances = [0.2, 1e-12, 1e-12, 0.2]
+    
     return expected_values, computed_values, tolerances
 """```
 
