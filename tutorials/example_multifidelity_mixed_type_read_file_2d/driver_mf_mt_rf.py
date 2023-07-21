@@ -91,6 +91,8 @@ def driver_mf_mt_rf():
     my_model.add_lhs_samples([4, 0])
     viz_ops = VizOptions()
     viz_ops.plot_2d=True
+    viz_ops.animation_2d=True
+    viz_ops.plot_nd=True
     bo_ops = BoOptions()
     bo_ops.cpu_hrs_per_sim = [1, 5]
     my_model.add_bo_samples(20,bo_ops=bo_ops,viz_ops=viz_ops)

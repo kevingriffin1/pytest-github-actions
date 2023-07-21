@@ -57,9 +57,9 @@ def driver_mf_1d():
     mod_ops.perform_lower_sims = False
 
     # Compute the low and high fidelity models as baselines
-    plt.figure()
-    x = np.linspace(0, 1, 101, endpoint=True).reshape(-1, 1)
-    plt.plot(x, hf_simulation([x]), color="k", label="Exact function")
+    # plt.figure()
+    # x = np.linspace(0, 1, 101, endpoint=True).reshape(-1, 1)
+    # plt.plot(x, hf_simulation([x]), color="k", label="Exact function")
 
     # Compute the multi-fidelity model
     t = time.time()
@@ -67,7 +67,10 @@ def driver_mf_1d():
     my_model.add_lhs_samples([5, 3])
     bo_ops = BoOptions()
     bo_ops.cpu_hrs_per_sim = [1, 5]
-    my_model.add_bo_samples(10,bo_ops=bo_ops)
+    viz_ops = VizOptions()
+    # viz_ops.plot_1d=True
+    # viz_ops.animation_1d=True
+    my_model.add_bo_samples(10,bo_ops=bo_ops,viz_ops=viz_ops)
     [x_opt, y_opt] = my_model.find_min()
     
     # Query the multifidelity GP at its high fidelity level
@@ -85,25 +88,24 @@ def driver_mf_1d():
     print('The minimum should be approximately [x,y] = [0.757249,-6.02074]')
     print('The minimum found is [', x_opt[0], ',', y_opt,']')
 
-    x_LF = my_model.x_data[0]
-    y_LF = my_model.y_data[0]
-    plt.scatter(x_LF, y_LF, marker="*", color="c", label="Low-fidelity samples")
-    x_HF = my_model.x_data[1]
-    y_HF = my_model.y_data[1]
-    plt.scatter(x_HF, y_HF, marker="o", color="g", label="HF samples")
-    plt.plot(x, my_model.gprs[-1].predict_values(x), linestyle="-.", color='r', label="Multi-fidelity GPR")
-    sig_plus = my_model.gprs[-1].predict_values(x)+3*np.sqrt(my_model.gprs[-1].predict_variances(x))
-    sig_moins = my_model.gprs[-1].predict_values(x)-3*np.sqrt(my_model.gprs[-1].predict_variances(x))
-    plt.fill_between(x.T[0],sig_plus.T[0],sig_moins.T[0],alpha=0.3,color='r')
+    # x_LF = my_model.x_data[0]
+    # y_LF = my_model.y_data[0]
+    # plt.scatter(x_LF, y_LF, marker="*", color="c", label="Low-fidelity samples")
+    # x_HF = my_model.x_data[1]
+    # y_HF = my_model.y_data[1]
+    # plt.scatter(x_HF, y_HF, marker="o", color="g", label="HF samples")
+    # plt.plot(x, my_model.gprs[-1].predict_values(x), linestyle="-.", color='r', label="Multi-fidelity GPR")
+    # sig_plus = my_model.gprs[-1].predict_values(x)+3*np.sqrt(my_model.gprs[-1].predict_variances(x))
+    # sig_moins = my_model.gprs[-1].predict_values(x)-3*np.sqrt(my_model.gprs[-1].predict_variances(x))
+    # plt.fill_between(x.T[0],sig_plus.T[0],sig_moins.T[0],alpha=0.3,color='r')
+    # plt.legend(loc=0)
+    # plt.ylim(-10, 17)
+    # plt.xlim(-0.1, 1.1)
+    # plt.xlabel(r"$x$")
+    # plt.ylabel(r"$y$")
+    # plt.savefig('mf')
+    # plt.show()
 
-    plt.legend(loc=0)
-    plt.ylim(-10, 17)
-    plt.xlim(-0.1, 1.1)
-    plt.xlabel(r"$x$")
-    plt.ylabel(r"$y$")
-
-    plt.savefig('mf')
-    plt.show()
     computed_values = [x_opt, y_opt]
     expected_values = [0.757249, -6.02074]
     tolerances = [0.1]*len(expected_values)

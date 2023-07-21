@@ -11,7 +11,6 @@ def validate_params(params):
     params = np.atleast_1d(params)
     n_dim = len(params)
     for i in range(n_dim):
-        params[i].type
         if params[i].type == 'continuous':
             if not hasattr(params[i], 'min_val'):
                 raise Exception('min_val not specified for param '+str(i))
@@ -40,6 +39,14 @@ def validate_params(params):
                     raise Exception('All categories of param['+str(i)+'] must be strings.')
         else:
             raise Exception('Unrecognized type for parameter '+str(i))
+    # Check that the first n_cont_vars are all continuous and the last n_cont_vars are either ordered or categorical
+    for i in range(n_dim):
+        if params[i].type == 'ordered' or params[i].type == 'categorical':
+            break
+    for ii in range(i+1,n_dim):
+        if params[ii].type != 'ordered' and params[ii].type != 'categorical':
+            raise Exception('Reorder the Param objects in the list of Params so that the Params of continuous data types'+
+                            ' appear in the list before the other data types.')
     return True
 
 #########################################################

@@ -59,6 +59,7 @@ def driver_2d():
     my_model.add_lhs_samples(10)
     viz_ops = VizOptions()
     viz_ops.animation_2d=True
+    viz_ops.plot_2d=True
     my_model.add_bo_samples(30,viz_ops=viz_ops)
     [x_opt, y_opt] = my_model.find_min()
     t = time.time() - t
