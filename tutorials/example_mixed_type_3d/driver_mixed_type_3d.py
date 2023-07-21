@@ -84,7 +84,6 @@ def driver_mixed_type_3d():
     viz_ops = VizOptions()
     viz_ops.plot_nd=True
     my_model.add_bo_samples(25,viz_ops=viz_ops)
-    # my_model.add_bo_samples(2,viz_ops=viz_ops)
     [x_opt, y_opt] = my_model.find_min()
     t = time.time() - t
     print('Elapsed time = ', t, ' s')

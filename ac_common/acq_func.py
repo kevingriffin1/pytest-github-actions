@@ -111,7 +111,7 @@ def minimize_acq_func(model,obj_k,x_start,bo_ops):
     if model.n_cont_vars == 0: # if all data types are discrete
         x_et_k = brute(lambda x: float(obj_k(x)), ranges, finish=None)
     elif model.n_cont_vars == model.n_dim: # if all data types are continuous
-        x_et_k = min_for_cont_vars([])[1]
+        x_et_k = min_for_cont_vars(xc_start,xclimits_num,obj_k,bo_ops,[])[1]
     else: # if there are a mixture of continuous and discrete data types
         xi_opt = brute(lambda x: min_for_cont_vars(xc_start,xclimits_num,obj_k,bo_ops,x)[0], ranges, finish=None)
         xf_opt = min_for_cont_vars(xc_start,xclimits_num,obj_k,bo_ops,xi_opt)[1]
