@@ -4,45 +4,45 @@ import os
 import sys
 import matplotlib.pyplot as plt
 
-# def test_example_pickle_1d(monkeypatch):
-#     tutorial_tester(monkeypatch,'example_pickle_1d','driver_pickle_1d')
-#     return
+def test_example_pickle_1d(monkeypatch):
+    tutorial_tester(monkeypatch,'example_pickle_1d','driver_pickle_1d')
+    return
 
-# def test_example_query_1d(monkeypatch):
-#     tutorial_tester(monkeypatch,'example_query_1d','driver_query_1d')
-#     return
+def test_example_query_1d(monkeypatch):
+    tutorial_tester(monkeypatch,'example_query_1d','driver_query_1d')
+    return
 
 def test_example_1d(monkeypatch):
     tutorial_tester(monkeypatch,'example_1d','driver_1d')
     return
 
-# def test_example_2d(monkeypatch):
-#     tutorial_tester(monkeypatch,'example_2d','driver_2d')
-#     return
+def test_example_2d(monkeypatch):
+    tutorial_tester(monkeypatch,'example_2d','driver_2d')
+    return
 
-# def test_example_3d(monkeypatch):
-#     tutorial_tester(monkeypatch,'example_3d','driver_3d')
-#     return
+def test_example_3d(monkeypatch):
+    tutorial_tester(monkeypatch,'example_3d','driver_3d')
+    return
 
-# def test_example_mask_1d(monkeypatch):
-#     tutorial_tester(monkeypatch,'example_mask_1d','driver_mask_1d')
-#     return
+def test_example_mask_1d(monkeypatch):
+    tutorial_tester(monkeypatch,'example_mask_1d','driver_mask_1d')
+    return
 
 def test_example_mixed_type_3d(monkeypatch):
     tutorial_tester(monkeypatch,'example_mixed_type_3d','driver_mixed_type_3d')
     return
 
-# def test_example_mixed_type_read_file_3d(monkeypatch):
-#     tutorial_tester(monkeypatch,'example_mixed_type_read_file_3d','driver_mt_rf_3d')
-#     return
+def test_example_mixed_type_read_file_3d(monkeypatch):
+    tutorial_tester(monkeypatch,'example_mixed_type_read_file_3d','driver_mt_rf_3d')
+    return
 
-# def test_example_multifidelity_1d(monkeypatch):
-#     tutorial_tester(monkeypatch,'example_multifidelity_1d','driver_mf_1d')
-#     return
+def test_example_multifidelity_1d(monkeypatch):
+    tutorial_tester(monkeypatch,'example_multifidelity_1d','driver_mf_1d')
+    return
 
-# def test_example_multifidelity_mixed_type_read_file_2d(monkeypatch):
-#     tutorial_tester(monkeypatch,'example_multifidelity_mixed_type_read_file_2d','driver_mf_mt_rf')
-#     return
+def test_example_multifidelity_mixed_type_read_file_2d(monkeypatch):
+    tutorial_tester(monkeypatch,'example_multifidelity_mixed_type_read_file_2d','driver_mf_mt_rf')
+    return
 
 def tutorial_tester(monkeypatch,dir_name,py_name):
     monkeypatch.setattr(plt, 'show', lambda: None) # close all plots
